@@ -46,7 +46,7 @@ ui <- fluidPage(
             selectInput('selection2', 'Variable 2', vars,selected = vars[2]),
             checkboxInput("Log2", "Log?", value = TRUE, width = NULL),
             selectInput('countries', 'Countries', countries, multiple=TRUE, selectize=FALSE,selected = "Germany"),
-            dateRangeInput('daterange','Date Range',start = as_date("2020-01-01"), end = Sys.Date()-1),
+            dateRangeInput('daterange','Date Range',start = as_date("2020-01-01"), end = Sys.Date()-1)
             
         ),
 
