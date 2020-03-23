@@ -65,8 +65,12 @@ server <- function(input, output) {
            g + scale_y_log10()
        else
            g
-    })
-    
+   ‚ })
+    autoInvalidate <- reactiveTimer(10000)
+    observe({
+        autoInvalidate()
+        cat(".")
+    }) 
 }
 
 # Run the application 
