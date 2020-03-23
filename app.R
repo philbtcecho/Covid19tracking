@@ -42,9 +42,9 @@ ui <- fluidPage(
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
         sidebarPanel(
-            fluidRow(selectInput('selection1', 'Variable 1', vars,selected = vars[1])),
-            fluidRow(selectInput('selection2', 'Variable 2', vars,selected = vars[2]),
-                     checkboxInput("Log2", "Log?", value = TRUE, width = NULL)),
+            selectInput('selection1', 'Variable 1', vars,selected = vars[1]),
+            selectInput('selection2', 'Variable 2', vars,selected = vars[2]),
+            checkboxInput("Log2", "Log?", value = TRUE, width = NULL),
             selectInput('countries', 'Countries', countries, multiple=TRUE, selectize=FALSE,selected = "Germany"),
             dateRangeInput('daterange','Date Range',start = as_date("2020-01-01"), end = Sys.Date()-1),
             
