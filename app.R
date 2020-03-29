@@ -10,9 +10,9 @@
 library(shiny)
 library(tidyverse) 
 library(lubridate)
-confirmed <- read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv") %>% select(-c(Lat,Long))
-death <- read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv") %>% select(-c(Lat,Long))
-recovered <- read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv") %>% select(-c(Lat,Long))
+confirmed <- read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv") %>% select(-c(Lat,Long))
+death <- read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv") %>% select(-c(Lat,Long))
+recovered <- read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv") %>% select(-c(Lat,Long))
 
 transform_tibble_temp <- function(tab)
     tab %>% select(-`Province/State`) %>% pivot_longer(names_to = "date",values_to = "vals",-`Country/Region`) %>% group_by(`Country/Region`,date) %>% summarise(vals=sum(vals)) %>% mutate(date=as.Date(date, format="%m/%e/%y"))
